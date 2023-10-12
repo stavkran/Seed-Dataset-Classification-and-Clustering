@@ -12,18 +12,12 @@
 - [Train and Test Sets](#train-and-test-sets)
 - [Classification Algorithms](#classification-algorithms)
   - [Random Forest](#random-forest)
+    - [Data Standardization](#data-standardization)
+    - [Training and Testing](#training-and-testing)
   - [Gaussian Naive Bayes](#gaussian-naive-bayes)
   - [K-Nearest Neighbors](#k-nearest-neighbors)
-- [Random Forest](#random-forest)
-  - [Data Standardization](#data-standardization)
-  - [Training and Testing](#training-and-testing)
-- [Gaussian Naive Bayes](#gaussian-naive-bayes)
-- [K-Nearest Neighbors](#k-nearest-neighbors)
-  - [Nearest Neighbor Categorization](#nearest-neighbor-categorization)
-  - [Data Preprocessing](#data-preprocessing-1)
-  - [Training and Testing](#training-and-testing-1)
-  - [Classification Metrics](#classification-metrics)
-  - [ROC Graph](#roc-graph)
+- [Classification Metrics](#classification-metrics)
+- [ROC Graph](#roc-graph)
 
 ## Introduction
 
@@ -56,8 +50,6 @@ Then we continue to create training and control sets. The purpose is to train th
 
 ## Classification Algorithms
 
-Next, we use 3 algorithms for categorization. The algorithms used are as follows:
-
 ### Random Forest
 
 Firstly, we'll analyze the first algorithm, that of the random forest. A random forest is an estimator that fits a number of tree decision classifiers into different subsets of the data set and uses the average to improve forecast accuracy and over-alignment control. The random forest, as its name suggests, consists of a large number of individual decision trees that function as a whole. Each individual tree in the random forest unfolds a class prediction, and the class with the most votes becomes our model prediction.
@@ -70,19 +62,19 @@ In the code, we import the `StandardScaler()` function from the sklearn.model_se
 
 We import the appropriate libraries and use the `RandomForestClassifier` function to define the evaluators. We make the forest with the trees from the set with the trained variables and then with the functions `predict()` and `predict_proba()` we calculate the order and the probability classes of the trained x. The same procedure is repeated for test_X. We print for both the confusion table as well as the accuracy score. The confusion table evaluates the output quality of a classifier. The diagonal elements represent the number of points for which the predicted label is equal to the actual label, while the other elements outside the main diagonal are those that have not been correctly marked by the classifier. The higher the diagonal values of the confusion table, the more accurate predictions we have.
 
-#### Gaussian Naive Bayes
+### Gaussian Naive Bayes
 
-Next is the Gaussian Naive Bayes algorithm for categorization. Bayesian naive classifiers are a family of simple "probabilistic classifiers" based on the application of Bayes' theorem with strong (naive) assumptions of independence between attributes. In general, Naive Bayes methods are a set of supervised learning algorithms based on the application of Bayes' theorem with the "naive" assumption of conditional independence between each pair of attributes given the value of the variable class. The naive Bayes classifiers work quite well in many real-world situations, such as document sorting and spam filtering. They require a small amount of training data to assess the necessary parameters. Naive Bayes learners and classifiers are quite fast compared to other methods. Each distribution can be independently estimated as a one-dimensional distribution. This helps to solve the problems that arise due to the spaces. Nevertheless, the naive Bayes may be good classifiers but as appraisers they are not as good. 
+Next is the Gaussian Naive Bayes algorithm for categorization. Bayesian naive classifiers are a family of simple "probabilistic classifiers" based on the application of Bayes' theorem with strong (naive) assumptions of independence between attributes. In general, Naive Bayes methods are a set of supervised learning algorithms based on the application of Bayes' theorem with the "naive" assumption of conditional independence between each pair of attributes given the value of the variable class. The naive Bayes classifiers work quite well in many real-world situations, such as document sorting and spam filtering. They require a small amount of training data to assess the necessary parameters. Naive Bayes learners and classifiers are quite fast compared to other methods. Each distribution can be independently estimated as a one-dimensional distribution. This helps to solve the problems that arise due to the spaces. Nevertheless, the naive Bayes may be good classifiers but as appraisers, they are not as good. 
 
 In the code, we start once again with the training and testing of the data after we have first introduced from the sklearn.naive_bayes library the GaussianNB equation (which is used for classification in Naive Bayes). Then we find with the functions `predict()` and `predict_proba()` the forecasts for the training and testing sets.
 
-#### K-Nearest Neighbors
+### K-Nearest Neighbors
 
-At last, we have the nearest neighbor algorithm. The nearest neighbor categorization is part of a more general technique, known as snapshot training, which does not construct a general model, but uses specific instructional samples to make predictions for a control snapshot. Such algorithms require a proximity measure to determine the similarity or distance between the snapshots and a categorization function, which returns the predicted category of a control snapshot based on its proximity to other snapshots.
+At last, we have the nearest neighbor algorithm. The nearest neighbor categorization is part of a more general technique, known as snapshot training, which does not construct a general model but uses specific instructional samples to make predictions for a control snapshot. Such algorithms require a proximity measure to determine the similarity or distance between the snapshots and a categorization function, which returns the predicted category of a control snapshot based on its proximity to other snapshots.
 
-In the code, we first import the appropriate libraries and then find the nearest neighbors of a point. We specify the parameters and create a variable to find the nearest neighbors and then print them. With the `fit()` function, we adapt the categorizer of the nearest neighbors to the elements we have trained. After that, we use once again the functions `predict()` and `predict_proba()` to calculate the order and the probability classes of the trained x. The same procedure is repeated for test_X. We print for both the confusion table as well as the accuracy score.
+In the code, we first import the appropriate libraries and then find the nearest neighbors of a point. We specify the parameters and create a variable to find the nearest neighbors and then print them. With the `fit()` function, we adapt the categorizer of the nearest neighbors to the elements we have trained. After that, we use once again the functions `predict()` and `predict_proba()` to calculate the order and the probability classes of the trained x. The same procedure is repeated for `test_X`. We print for both the confusion table as well as the accuracy score.
 
-#### Classification Metrics
+### Classification Metrics
 
 As the proper pre-processing and training of the data has been done, the algorithm is quite reliable. As shown in the picture based on the confusion table for both train and test data, the diagonal consists of quite large numbers, which indicates that we have many correct predictions.
 
@@ -98,7 +90,6 @@ Then I print the main categorization metrics for this algorithm using the `class
 - Macro avg calculates the measurements for each tag and finds the unweighted average.
 - Weighted avg calculates the metrics for each tag and finds their average weight based on support.
 
-#### ROC Graph
+### ROC Graph
 
 Finally, I print the ROC graph, which usually has a true positive rate on the Y-axis and a false positive rate on the X-axis. This means that the upper left corner of the graph is the "ideal" point - a false positive percentage zero, and a real positive percentage one. This is not very realistic, but it does mean that a larger area under the curve (AUC) is usually better. The "deviation" of the ROC curves is also important, as it is ideal to maximize the true positive percentage while minimizing the false positive percentage.
-
